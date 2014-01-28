@@ -9,4 +9,8 @@ module ApplicationHelper
     end
   end
   
+  def which_action
+    params[:action]
+  end
+  
 end
