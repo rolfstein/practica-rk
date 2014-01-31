@@ -1,15 +1,32 @@
-<div class="jumbotron">
-  <h1>Practica</h1>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <h1>Practica</h1>
 
-  <p>Practica de rails pagina principal</p>
+    <p>Practica de rails pagina principal</p>
 
-  <h2>
-    <a href="http://www.google.com">Google</a>
-  </h2>
+    <h2>
+      <a href="http://www.google.com">Google</a>
+    </h2>
   
-  <% if current_user.nil? %>
-    <%= link_to "sign up now!", signup_path, class: 'btn btn-large btn-primary' %>
-  <% end %>
-</div>
+    <% if current_user.nil? %>
+      <%= link_to "sign up now!", signup_path, class: 'btn btn-large btn-primary' %>
+    <% end %>
+  </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %>
